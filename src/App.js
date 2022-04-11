@@ -6,9 +6,9 @@ import NotesList from "./Components/NotesList";
 
 function App() {
   const [userNote, setUserNote] = React.useState([
-    { id: Math.random(), Note: "This is my first Note.", date: "02/09/2020" },
-    { id: Math.random(), Note: "This is my second Note.", date: "02/03/2021" },
-    { id: Math.random(), Note: "This is my third Note.", date: "02/01/2022" },
+    { id: Math.random(), Note: "This is my first Post.", date: "02/09/2020" },
+    { id: Math.random(), Note: "This is my second Post.", date: "02/03/2021" },
+    { id: Math.random(), Note: "This is my third Post.", date: "02/01/2022" },
   ]);
   const [openEditNote, setOpenEditNote] = React.useState(false);
   const handleNote = (uNote) => {

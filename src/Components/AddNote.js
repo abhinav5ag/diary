@@ -13,17 +13,17 @@ function AddNote(props) {
     props.onAddNote(Note);
     updateNote("");
   };
-  
+
   return (
     <Container>
       <Wrap>
         <Form>
           <form onSubmit={handleFormSubmit}>
-            <label htmlFor="Note">Write Your Note</label>
+            <label htmlFor="Note">Write Your Post</label>
             <input type="text" value={Note} onChange={handleNoteChange} />
           </form>
         </Form>
-        <Add onClick={handleFormSubmit}>Add Note</Add>
+        <Add onClick={handleFormSubmit}>Add Post</Add>
       </Wrap>
     </Container>
   );

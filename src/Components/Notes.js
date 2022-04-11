@@ -1,17 +1,21 @@
 import React from "react";
 import styled from "styled-components";
+import Comment from "./Comment";
 
 function Notes(props) {
+  const [comment, setComment] = React.useState(true);
   const editNoteHandler = () => {
     props.handleEditNote(props.id);
   };
   const deleteNoteHandler = (event) => {
     props.handleDeleteNote(props.id);
   };
+
   return (
     <Wrap>
       <Text>{props.text}</Text>
       <Date>{props.date}</Date>
+      {comment && <Comment />}
       <Functions>
         <Edit onClick={editNoteHandler}>
           <img src="/images/edit.png" alt="" />
@@ -61,7 +65,7 @@ const Delete = styled.div`
   height: 26px;
   width: 26px;
   cursor: pointer;
-  margin-left: 6px;
+  margin-left: 174px;
   margin-bottom: 5px;
   img {
     height: 100%;

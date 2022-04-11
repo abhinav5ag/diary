@@ -11,6 +11,8 @@ function App() {
     { id: Math.random(), Note: "This is my third Post.", date: "02/01/2022" },
   ]);
   const [openEditNote, setOpenEditNote] = React.useState(false);
+  const [newNote, setNewNote] = React.useState("");
+  const [noteId, setNoteId] = React.useState("");
   const handleNote = (uNote) => {
     const date = new Date();
     setUserNote((prevNote) => {
@@ -21,7 +23,9 @@ function App() {
     });
   };
 
-  const handleChange = () => {};
+  const handleChange = (event) => {
+    setNewNote(event.target.value);
+  };
 
   const deleteNode = (id) => {
     const newNotes = userNote.filter((note) => note.id !== id);
@@ -29,13 +33,22 @@ function App() {
   };
 
   const editNote = (id) => {
-    const newEditNote = userNote.find((note) => {
-      return note.id === id;
-    });
+    setNoteId(id);
     setOpenEditNote(true);
   };
 
   const handleEditedNote = () => {
+    // const newEditNote = userNote.find((note) => {
+    //   return note.id === noteId;
+    // });
+    setUserNote(
+      userNote.map((note) => {
+        if (note.id === noteId) {
+          return { ...note, Note: newNote };
+        }
+        return note;
+      })
+    );
     setOpenEditNote(false);
   };
 
